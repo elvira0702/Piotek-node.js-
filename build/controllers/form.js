@@ -58,3 +58,21 @@ exports.deleteForm = function (req, res) {
         }
     });
 };
+exports.autoForm = function () {
+    formList_1.FormList.getNewForm(function (err, result) {
+        if (err) {
+            return;
+        }
+        var list = result;
+        if (list.length === 0)
+            return;
+        var index = Math.floor(Math.random() * list.length);
+        var random = Math.random() > 0.5 ? '已完成' : '已退回';
+        list[index].state = random;
+        formList_1.FormList.updateFormList(list[index], function (err, result) {
+            if (err) {
+                return;
+            }
+        });
+    });
+};

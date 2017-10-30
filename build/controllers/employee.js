@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var employeeInfo_1 = require("../models/employeeInfo");
+var notFound = {
+    userId: 'null',
+    name: '',
+    dep: '',
+    hiredate: ''
+};
 exports.getEmployees = function (req, res) {
     employeeInfo_1.EmployeeInfo.getEmployeesInfos(function (err, result) {
         if (err) {
@@ -18,7 +24,8 @@ exports.getEmployee = function (req, res) {
             res.json(err);
         }
         else {
-            res.json(result);
+            var employee = (result.length > 0) ? result[0] : notFound;
+            res.json(employee);
         }
     });
 };

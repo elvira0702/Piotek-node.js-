@@ -56,3 +56,20 @@ export let deleteForm = (req: Request, res: Response) => {
     })
 };
 
+export let autoForm = () => {
+    FormList.getNewForm((err, result) => {
+        if (err) {
+            return;
+        }
+        const list = result as FormList[];
+        if (list.length === 0) return;
+        const index = Math.floor(Math.random() * list.length);
+        let random = Math.random() > 0.5 ? '已完成' : '已退回';
+        list[index].state = random;
+        FormList.updateFormList(list[index], (err, result) => {
+            if (err) {
+                return;
+            }
+        })
+    })
+};

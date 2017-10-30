@@ -47,4 +47,11 @@ export class FormList {
             callback(err,result);
         })
     }
+
+    public static getNewForm(callback) {
+        const sql = 'select * from FormList where state ="申请中"';
+        BaseDB.dealData(sql, [], (err,result)=> {
+            callback(err,result);
+        })
+    }
 }
