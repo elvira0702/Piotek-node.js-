@@ -1,8 +1,8 @@
 # Piotek-node.js-
 node+angular模拟公司内部员工系统
-编译后的angular项目加服务器端代码，下载后npm install，前往http://localhost:8080查看项目。
-Angular项目下的单页应用，模拟公司内部员工系统，基于bootstrap开源项目AdminLTE，利用Redux进行状态统一管理，Rx响应式编程，利用cropperjs处理头像裁剪上传功能。所有数据均通过nodejs连接mysql数据库并存储，具有完整的增删改查功能。
-项目演示地址：www.elviracheng.com/piotek，因项目设定为只有该公司的员工可注册，在此提供可直接登录的id: s15801369,password:5201314;
+编译后的angular项目加服务器端代码，下载后npm install，前往http://localhost:8080 查看项目。
+Angular项目下的单页应用，模拟公司内部员工系统，基于bootstrap开源项目AdminLTE，利用Redux进行状态统一管理，Rx响应式编程，利用cropperjs处理头像裁剪上传功能。所有数据均通过nodejs连接mysql数据库并存储，具有完整的增删改查功能,改善首页加载速度，采用懒加载预加载技术。。
+项目演示地址：www.elviracheng.com/piotek ，因项目设定为只有该公司的员工可注册，在此提供可直接登录的id: s15801369,password:5201314;
 编译前的前端完整代码地址为:https://github.com/elvira0702/Piotek
 1.	登录注册功能，注册和登录表单完整的校验功能，注册时首先通过访问数据库判断用户是否为本公司员工，然后进行密码验证，验证正确后导航至首页，在本地保留登录状态，刷新页面后可保持登录状态，退出登录后清除本地登录状态，除登录和注册页面，其他页面需通过路由守卫判断确定为登录状态的验证方可访问，否则退回登录页面，注册功能类似。
 2.	首页轮播图展示公司美景，tab分页展示公司简介、公司新闻、公司文化以及意见反馈等；
